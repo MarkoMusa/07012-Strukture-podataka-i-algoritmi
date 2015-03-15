@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_04", "Vjezba_04\Vjez
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_05", "Vjezba_05\Vjezba_05.vcxproj", "{4318704B-A918-4515-9F3E-9E37503B8E36}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_06", "Vjezba_06\Vjezba_06.vcxproj", "{ADABFA5F-9ABB-40BE-B41A-3A087DAA5A73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +39,10 @@ Global
 		{4318704B-A918-4515-9F3E-9E37503B8E36}.Debug|Win32.Build.0 = Debug|Win32
 		{4318704B-A918-4515-9F3E-9E37503B8E36}.Release|Win32.ActiveCfg = Release|Win32
 		{4318704B-A918-4515-9F3E-9E37503B8E36}.Release|Win32.Build.0 = Release|Win32
+		{ADABFA5F-9ABB-40BE-B41A-3A087DAA5A73}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ADABFA5F-9ABB-40BE-B41A-3A087DAA5A73}.Debug|Win32.Build.0 = Debug|Win32
+		{ADABFA5F-9ABB-40BE-B41A-3A087DAA5A73}.Release|Win32.ActiveCfg = Release|Win32
+		{ADABFA5F-9ABB-40BE-B41A-3A087DAA5A73}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
