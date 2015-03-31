@@ -8,11 +8,23 @@ class Country
 {
 public:
 	Country ();
+<<<<<<< HEAD
 	~Country ();
 
 private:
 	std::vector<int> emissions;
 	std::string countryCode;
 	std::string countryName;
+=======
+	Country (std::string name, std::string code, std::vector<double> co2Numbers);
+	double sumEmissions();
+	std::string printSummary();
+
+private:
+	std::string countryName;
+	std::string countryCode;
+	std::vector<double> co2numbers;
+	double totalEmissions;
+>>>>>>> origin/master
 };
 #endif

@@ -194,3 +194,9 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+Vjezbe_02/Vjezba_02/Debug/Vjezba_02.log
+*.pdb
+*.tlog
+Vjezbe_01/Vjezba01/Debug/main.obj
+*.exe
+*.log
