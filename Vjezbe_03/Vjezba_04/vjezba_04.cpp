@@ -14,8 +14,34 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <vector>
 
 using namespace std;
+
+
+void print_prosjek(mapa_poljem& m)
+{
+	double total = 0;
+	int count = 0;
+
+	for (KEY key = m.first(); key < m.last(); key = m.next())
+	{
+		VALUE val = m.get(key);
+
+		
+		if (val > 0) 
+		{
+			count++;
+			total += val;
+		}
+	}
+	cout << "Prosjecna svjetska ocekivana zivotna dob: " << total / count << endl;
+}
+
+
+
+// Went way overborad here, assignment was looking for a list of structs :)
 
 int main() 
 {
@@ -27,17 +53,31 @@ int main()
 		return 1;
 	}
 
-	string country;
-	string lifeExpectancy;
+	
 
-	while (ifs)
+	string tmp;
+	string coutnry;
+	string lifeExp;
+
+	// Get rid of header column
+	getline(ifs, tmp);
+
+	while (getline(ifs, tmp))
 	{		
-		getline(ifs, country, ';');
-		getline(ifs, lifeExpectancy, ';');
+		stringstream ss(tmp);
 
-		map.add(country, lifeExpectancy);
+		getline(ss, coutnry, ';');
+		getline(ss, lifeExp, ';');
+
+		if (lifeExp == "..")
+			lifeExp = "0";
+
+		map.add(coutnry, stof(lifeExp));
 	};
 	ifs.close();
+
+
+	print_prosjek(map);
 
 	KEY keyToFind = "";
 	while(true) 
@@ -47,20 +87,27 @@ int main()
 		getline(cin, keyToFind);
 		cin.clear();
 
-		if(toFind == "x")
+		if(keyToFind == "x")
 			break;
 
-		pos = list.find(toFind);
+		VALUE val = map.get(keyToFind);
 
 
 
-		if(pos != list.end())
-			cout << "found at position " << pos << endl;
+		if(val != map.end()) 
+		{
+			if (val == 0)
+				cout << "Za trazenu drzavu nema dostupnih podataka o ocekivanoj zivotnoj dobi";
+			else
+				cout << "Ocekivana zivotna dob je:  " << val << endl;
+		}
 		else
-			cout << "not found" << endl;
+		{
+			cout << "Trazena drzava ne postoji u listi" << endl;
+		}
 	}
 
-	cout << "COUNT " << list.size() << endl;
+	cout << "COUNT " << map.size() << endl;
 	
 	return 0;
 }

@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_03", "Vjezba_03\Vjez
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_04", "Vjezba_04\Vjezba_04.vcxproj", "{351C14EA-3683-40C6-94C8-CEA9EEBCCABD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_05", "Vjezba_05\Vjezba_05.vcxproj", "{BE0CFDFA-6CBD-4C30-8365-5C3DB7CD958A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vjezba_06", "Vjezba_06\Vjezba_06.vcxproj", "{5F940413-2833-466C-8884-E946504AA535}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +35,14 @@ Global
 		{351C14EA-3683-40C6-94C8-CEA9EEBCCABD}.Debug|Win32.Build.0 = Debug|Win32
 		{351C14EA-3683-40C6-94C8-CEA9EEBCCABD}.Release|Win32.ActiveCfg = Release|Win32
 		{351C14EA-3683-40C6-94C8-CEA9EEBCCABD}.Release|Win32.Build.0 = Release|Win32
+		{BE0CFDFA-6CBD-4C30-8365-5C3DB7CD958A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BE0CFDFA-6CBD-4C30-8365-5C3DB7CD958A}.Debug|Win32.Build.0 = Debug|Win32
+		{BE0CFDFA-6CBD-4C30-8365-5C3DB7CD958A}.Release|Win32.ActiveCfg = Release|Win32
+		{BE0CFDFA-6CBD-4C30-8365-5C3DB7CD958A}.Release|Win32.Build.0 = Release|Win32
+		{5F940413-2833-466C-8884-E946504AA535}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5F940413-2833-466C-8884-E946504AA535}.Debug|Win32.Build.0 = Debug|Win32
+		{5F940413-2833-466C-8884-E946504AA535}.Release|Win32.ActiveCfg = Release|Win32
+		{5F940413-2833-466C-8884-E946504AA535}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

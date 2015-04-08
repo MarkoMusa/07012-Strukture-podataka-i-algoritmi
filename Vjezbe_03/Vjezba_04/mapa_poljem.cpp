@@ -4,6 +4,7 @@ mapa_poljem::mapa_poljem() {
 	// Zadnji element liste je na poziciji 0 jer lista ne postoji ("prvi iza" je na poziciji 1).
 	_last = 0;
 	_pos = 0;
+	_null = _v[CAPACITY - 1];
 }
 
 int mapa_poljem::getIndex(KEY key) {
@@ -15,18 +16,9 @@ int mapa_poljem::getIndex(KEY key) {
 	return -1;
 }
 
-int mapa_poljem::getIndex(VALUE val) {
-	for (int i = 0; i < _last; i++) {
-		if (_v[i] == val) {
-			return i;
-		}
-	}
-	return -1;
-}
-
 
 KEY mapa_poljem::first()	{	return _k[0];			}
-KEY mapa_poljem::last()		{	return _k[_last];	}
+KEY mapa_poljem::last()		{	return _k[_last-1];	}
 
 bool mapa_poljem::add(KEY key, VALUE value) {
 
@@ -61,7 +53,6 @@ bool mapa_poljem::remove(KEY key) {
 }
 
 
-
 VALUE mapa_poljem::get(KEY key) {
 	int pos = getIndex(key);
 	if (pos >= 0) 
@@ -69,24 +60,16 @@ VALUE mapa_poljem::get(KEY key) {
 		_pos = pos;
 		return _v[pos];
 	}
-	return nullptr;
+	return _null;
 }
 
-KEY mapa_poljem::get(VALUE val) {
-	
-	int pos = getIndex(val);
-	if (pos >= 0) 
-	{
-		_pos = pos;
-		return _k[pos];
-	}
-	return nullptr;
-}
-
+VALUE mapa_poljem::end() { return _null; }
 
 void mapa_poljem::empty() { _last = _pos = 0; }
 
+
 // Iteration
-KEY mapa_poljem::next()		{ return _k[++_pos]; }
-KEY mapa_poljem::prev()		{ return _k[--_pos]; }
-void mapa_poljem::reset()	 { _pos = 0; }
+KEY mapa_poljem::next()		{ return _k[++_pos];	}
+KEY mapa_poljem::prev()		{ return _k[--_pos];	}
+void mapa_poljem::reset()	{ _pos = 0;				}
+int mapa_poljem::size()		{ return _last;			}
