@@ -78,7 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\RVS15-SPA-Vjezbe-05-Prilozi\red_dinamicki.cpp" />
     <ClCompile Include="vjezba_05_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\RVS15-SPA-Vjezbe-05-Prilozi\red_dinamicki.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

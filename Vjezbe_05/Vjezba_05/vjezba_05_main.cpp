@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include "red_dinamicki.h"
 
 using namespace std;
 
@@ -32,35 +33,34 @@ int get_menu_choice()
 	cin >> opt;
 	return opt;
 }
-void get_and_add_number(vector<double>& n)
+void get_and_add_number(red_dinamicki& n)
 {
-	double number;
+	ELTYPE number;
 	cout << "Enter number: ";
 	cin >> number;
-	n.push_back(number);
+	n.enqueue(number);
 }
-void save_to_file(vector<double>& n)
+void save_to_file(red_dinamicki& n, ofstream& ofs)
+{
+	ELTYPE e;
+	while(n.dequeue(e))
+		ofs << e << endl;
+
+	cout << "Saved";
+}
+
+int main()
 {
 	ofstream ofs("numbers.txt");
 	if (!ofs)
 	{
 		cout << "error saving to numbers.txt";
-		return;
+		return 1;
 	}
 
-	double number;
-	for (int i = 0; i < n.size(); i++)
-	{
-		ofs << n[i] << endl;
-	}
-	cout << "Saved";
-	n.clear();
-}
-
-int main()
-{
-	vector<double> numbers;
-	while (true)
+	bool cont = true;
+	red_dinamicki numbers;
+	while (cont)
 	{
 		int option;
 		option = get_menu_choice();
@@ -70,15 +70,16 @@ int main()
 				get_and_add_number(numbers);
 				break;
 			case SAVE:
-				save_to_file(numbers);
+				save_to_file(numbers, ofs);
 				break;
 			case EXIT: 
-				return 0;
+				cont = false;
+				break;
 			default:
 				cout << "Incorrect option";
 				break;
 		}
 	}
-
+	ofs.close();
 	return 0;
 }
