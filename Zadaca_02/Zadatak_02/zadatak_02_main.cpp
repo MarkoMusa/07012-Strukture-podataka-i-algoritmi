@@ -44,9 +44,6 @@ int main() {
 	Node<Obj>* playerPos = get_pos_from_user(b, player, "Enter player start pos");
 	Node<Obj>* exitPos = get_pos_from_user(b, exit, "Enter destination pos");
 
-
-	
-
     // remember to insert edges both ways for an undirected graph
 	adjacency_list_t adjacency_list(rows * columns);
 	fill_adjacency_list(b, adjacency_list);
