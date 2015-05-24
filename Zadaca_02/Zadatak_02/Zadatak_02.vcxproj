@@ -78,7 +78,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Board.cpp" />
     <ClCompile Include="zadatak_02_main.cpp" />
   </ItemGroup>
   <ItemGroup>

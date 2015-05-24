@@ -29,22 +29,23 @@ int main() {
 
 	const int rows = 20;				// Set field size
 	const int columns = 40;
-	unsigned int maxWalls = 12;			// Ajust amount of and length of walls here
-	unsigned int maxWallLength = 16;		// This will randomize within this number
-	
+	unsigned int maxWalls = 10;			// # of walls generated
+	unsigned int maxWallLength = 16;	// randomize wall length within this number
+
 	Obj* empty = new Obj(EMPTY);
 	Obj* player = new Obj(PLAYER);
 	Obj* exit = new Obj(DEST);
 	Obj* wall = new Obj(WALL);
 	
 	Board<Obj> b(rows, columns);
+
 	// Set walls first to be overwritten by player/destination
 	random_wall_generator(b, wall, maxWalls, maxWallLength);
 
 	Node<Obj>* playerPos = get_pos_from_user(b, player, "Enter player start pos");
 	Node<Obj>* exitPos = get_pos_from_user(b, exit, "Enter destination pos");
+	Node<Obj>* current = playerPos;
 
-    // remember to insert edges both ways for an undirected graph
 	adjacency_list_t adjacency_list(rows * columns);
 	fill_adjacency_list(b, adjacency_list);
  
@@ -52,31 +53,32 @@ int main() {
     std::vector<vertex_t> previous;
     DijkstraComputePaths(playerPos->getID(), adjacency_list, min_distance, previous);
     std::list<vertex_t> path = DijkstraGetShortestPathTo(exitPos->getID(), previous);
-   
-	// XXX: very similar code to wall generation, abstract?
-	Node<Obj>* p = playerPos;
-	Node<Obj>* c = playerPos;
-
-	cout << b.toString(); // Initial state display
-
-	if (path.begin() == path.end())
-	{
-		cout << endl << "NO PATH FOUND" << endl;
-		return 0;
-	}
-
-	for (std::list<vertex_t>::iterator it=path.begin(); it != path.end(); ++it) {
-
-		p = c;
-		c = b.getNodeByID(*it);
-
-		p->setContents(empty);
-		c->setContents(player);
-
-		system("cls");
-		cout << b.toString();
-		Sleep(500);
-	}
  
+	
+	// Show initial state
+	system("cls");
+	cout << b.toString(); 
+
+	// End early if no path found
+	if (path.size() == 1)
+	{
+		cout << endl << endl << "NO PATH" << endl;
+	} else {
+		// XXX: very similar code to wall generation, abstract?
+		//TODO: why does it hug north wall?
+		for (std::list<vertex_t>::iterator it=path.begin(); it != path.end(); ++it) {
+
+		
+			current->setContents(empty);	// clean out old node
+
+			current = b.getNodeByID(*it);	// get and update next
+			current->setContents(player);
+
+			system("cls");
+			cout << b.toString();
+			Sleep(500);
+		}
+	}
+
     return 0;
 }

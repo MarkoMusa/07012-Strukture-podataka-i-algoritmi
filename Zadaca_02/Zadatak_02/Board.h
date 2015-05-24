@@ -9,7 +9,7 @@
 using namespace std;
 
 
-/// XXX: ... wanted to play with templates ended up with triple Nodeers ...
+/// XXX: ... wanted to play with templates ended up with triple pointers ...
 template<class T> class Board {
 private:
 	const unsigned int totRows;
@@ -39,7 +39,7 @@ public:
 
 	unsigned int getRows() { return totRows; }
 	unsigned getCols() { return totCols; }
-
+	// TODO: Hide node behind inteface
 	Node<T>* getByRowCol(int row, int col) {	
 		return board[row][col];	
 	}
